@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D5B44BF1-1B3D-4347-8E6F-0807AB923270}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EverTech.Permission.Services</RootNamespace>
+    <AssemblyName>EverTech.Permission.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Orm.Son, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Orm.Son.1.1.5\lib\Orm.Son.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PermissionService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegionService.cs" />
+    <Compile Include="RolePermissionService.cs" />
+    <Compile Include="RoleService.cs" />
+    <Compile Include="UserRegionService.cs" />
+    <Compile Include="UserRoleService.cs" />
+    <Compile Include="UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EverTech.Permission.Atoms\EverTech.Permission.Atoms.csproj">
+      <Project>{4e060c21-4ca1-472c-b753-3524febc9b50}</Project>
+      <Name>EverTech.Permission.Atoms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EverTech.Permission.Libs\EverTech.Permission.Libs.csproj">
+      <Project>{5af4bc09-d98c-4269-961a-bf0c1915cf78}</Project>
+      <Name>EverTech.Permission.Libs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EverTech.Permission.Molecules\EverTech.Permission.Molecules.csproj">
+      <Project>{69b6c723-6b51-49d9-a942-700929a4a3d2}</Project>
+      <Name>EverTech.Permission.Molecules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EverTech.Permission.Steps\EverTech.Permission.Steps.csproj">
+      <Project>{9bd8b2db-dc85-4ca3-b0ae-1a4d683b5fb0}</Project>
+      <Name>EverTech.Permission.Steps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EverTech.Permission.Storages\EverTech.Permission.Storages.csproj">
+      <Project>{454fda5e-4f00-4b07-a5fd-21bef1441ef2}</Project>
+      <Name>EverTech.Permission.Storages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

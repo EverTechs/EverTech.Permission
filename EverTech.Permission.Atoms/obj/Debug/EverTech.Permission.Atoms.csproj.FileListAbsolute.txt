@@ -1,0 +1,5 @@
+E:\GitHub\EverTech.Permission\EverTech.Permission.Atoms\bin\Debug\EverTech.Permission.Atoms.dll
+E:\GitHub\EverTech.Permission\EverTech.Permission.Atoms\bin\Debug\EverTech.Permission.Atoms.pdb
+E:\GitHub\EverTech.Permission\EverTech.Permission.Atoms\bin\Debug\Orm.Son.dll
+E:\GitHub\EverTech.Permission\EverTech.Permission.Atoms\obj\Debug\EverTech.Permission.Atoms.dll
+E:\GitHub\EverTech.Permission\EverTech.Permission.Atoms\obj\Debug\EverTech.Permission.Atoms.pdb

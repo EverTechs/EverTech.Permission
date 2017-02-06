@@ -1,0 +1,10 @@
+E:\GitHub\EverTech.Permission\EverTech.Permission.Storages\obj\Debug\EverTech.Permission.Storages.csprojResolveAssemblyReference.cache
+E:\GitHub\EverTech.Permission\EverTech.Permission.Storages\bin\Debug\EverTech.Permission.Storages.dll
+E:\GitHub\EverTech.Permission\EverTech.Permission.Storages\bin\Debug\EverTech.Permission.Storages.pdb
+E:\GitHub\EverTech.Permission\EverTech.Permission.Storages\bin\Debug\EverTech.Permission.Atoms.dll
+E:\GitHub\EverTech.Permission\EverTech.Permission.Storages\bin\Debug\EverTech.Permission.Molecules.dll
+E:\GitHub\EverTech.Permission\EverTech.Permission.Storages\bin\Debug\Orm.Son.dll
+E:\GitHub\EverTech.Permission\EverTech.Permission.Storages\bin\Debug\EverTech.Permission.Atoms.pdb
+E:\GitHub\EverTech.Permission\EverTech.Permission.Storages\bin\Debug\EverTech.Permission.Molecules.pdb
+E:\GitHub\EverTech.Permission\EverTech.Permission.Storages\obj\Debug\EverTech.Permission.Storages.dll
+E:\GitHub\EverTech.Permission\EverTech.Permission.Storages\obj\Debug\EverTech.Permission.Storages.pdb
