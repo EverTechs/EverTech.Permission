@@ -2,3 +2,4 @@ E:\GitHub\EverTech.Permission\EverTech.Permission.Libs\bin\Debug\EverTech.Permis
 E:\GitHub\EverTech.Permission\EverTech.Permission.Libs\bin\Debug\EverTech.Permission.Libs.pdb
 E:\GitHub\EverTech.Permission\EverTech.Permission.Libs\obj\Debug\EverTech.Permission.Libs.dll
 E:\GitHub\EverTech.Permission\EverTech.Permission.Libs\obj\Debug\EverTech.Permission.Libs.pdb
+E:\GitHub\EverTech.Permission\EverTech.Permission.Libs\obj\Debug\EverTech.Permission.Libs.csprojResolveAssemblyReference.cache

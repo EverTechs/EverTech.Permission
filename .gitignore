@@ -46,3 +46,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 .vs/EverTech.Permission.Web/v14/.suo
+*.suo
+*.pdb
