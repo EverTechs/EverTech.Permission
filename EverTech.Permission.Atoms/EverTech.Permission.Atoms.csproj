@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Orm.Son, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Orm.Son.1.1.5\lib\Orm.Son.dll</HintPath>
+      <HintPath>..\packages\Orm.Son.1.1.7\lib\Orm.Son.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Orm.Son, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Orm.Son.1.1.5\lib\Orm.Son.dll</HintPath>
+      <HintPath>..\packages\Orm.Son.1.1.7\lib\Orm.Son.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -54,13 +54,13 @@
     <Compile Include="UserStep.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\EverTech.Permission.Storages\EverTech.Permission.Storages.csproj">
       <Project>{454fda5e-4f00-4b07-a5fd-21bef1441ef2}</Project>
       <Name>EverTech.Permission.Storages</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

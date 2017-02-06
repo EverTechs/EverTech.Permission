@@ -13,7 +13,7 @@ namespace EverTech.Permission.Atoms
         public string EMail { get; set; }
         public bool? Gender { get; set; }
         public DateTime? AddTime { get; set; }
-        public DateTime? AddUser { get; set; }
+        public int? AddUser { get; set; }
         public DateTime? EditTime { get; set; }
         public int? EditUser { get; set; }
         public bool? Enable { get; set; }

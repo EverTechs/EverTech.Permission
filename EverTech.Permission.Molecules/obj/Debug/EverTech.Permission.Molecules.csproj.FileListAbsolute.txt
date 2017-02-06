@@ -1,5 +1,0 @@
-E:\GitHub\EverTech.Permission\EverTech.Permission.Molecules\bin\Debug\EverTech.Permission.Molecules.dll
-E:\GitHub\EverTech.Permission\EverTech.Permission.Molecules\bin\Debug\EverTech.Permission.Molecules.pdb
-E:\GitHub\EverTech.Permission\EverTech.Permission.Molecules\obj\Debug\EverTech.Permission.Molecules.dll
-E:\GitHub\EverTech.Permission\EverTech.Permission.Molecules\obj\Debug\EverTech.Permission.Molecules.pdb
-E:\GitHub\EverTech.Permission\EverTech.Permission.Molecules\obj\Debug\EverTech.Permission.Molecules.csprojResolveAssemblyReference.cache

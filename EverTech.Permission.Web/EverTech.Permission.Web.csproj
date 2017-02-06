@@ -112,6 +112,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="web\build\" />
+    <Folder Include="web\config\" />
+    <Folder Include="web\dist\" />
+    <Folder Include="web\node_modules\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EverTech.Permission.Libs\EverTech.Permission.Libs.csproj">

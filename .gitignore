@@ -48,3 +48,6 @@ Temporary Items
 .vs/EverTech.Permission.Web/v14/.suo
 *.suo
 *.pdb
+bin
+obj
+node_modules
