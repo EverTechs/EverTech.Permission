@@ -6,40 +6,40 @@ using EverTech.Permission.Libs;
 using System.Collections.Generic;
 using EverTech.Permission.Web.Utils;
 
-namespace EverTech.Permission.Web.Controllers 
+namespace EverTech.Permission.Web.Controllers
 {
-	public class UserController : ApiController
+    public class UserController : ApiController
     {
         UserService service = new UserService();
 
-		[HttpPost,ApiException]
+        [HttpPost, ApiException]
         public DataResult<string> Add(UserMolecule model)
         {
             return service.Add(model);
         }
 
-		[HttpPost,ApiException]
+        [HttpPost, ApiException]
         public DataResult<string> Del(int id)
         {
             return service.Del(id);
         }
-		
-		[HttpPost,ApiException]
+
+        [HttpPost, ApiException]
         public DataResult<string> Edit(UserMolecule model)
         {
             return service.Edit(model);
         }
 
-		[HttpGet,ApiException]
+        [HttpGet, ApiException]
         public DataResult<UserMolecule> GetById(int id)
         {
             return service.GetById(id);
         }
 
-		[HttpGet,ApiException]
-        public DataResult<List<UserMolecule>> FindPage(int page)
+        [HttpGet, ApiException]
+        public DataResult<List<UserMolecule>> FindPage(int id = 1)
         {
-            return service.FindPage(page);
+            return service.FindPage(id);
         }
     }
 }
