@@ -6,6 +6,7 @@ import 'element-ui/lib/theme-default/index.css'
 import VueRouter from 'vue-router'
 import store from './vuex/store'
 import Vuex from 'vuex'
+import VueResource from 'vue-resource'
 import NProgress from 'nprogress'//页面顶部进度条
 import 'nprogress/nprogress.css'
 
@@ -23,6 +24,7 @@ import echarts from './components/charts/echarts.vue'
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(Vuex)
+Vue.use(VueResource)
 
 const routes = [
   {
