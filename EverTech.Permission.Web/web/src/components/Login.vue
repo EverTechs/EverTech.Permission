@@ -1,15 +1,15 @@
 <template>
-  <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-position="left" label-width="0px" class="demo-ruleForm card-box loginform">
+  <el-form :model="loginform" :rules="rules" label-position="left" label-width="0px" class="demo-ruleForm card-box loginform">
     <h3 class="title">系统登录</h3>
-    <el-form-item prop="account">
-      <el-input type="text" v-model="ruleForm2.account" auto-complete="off" placeholder="账号"></el-input>
+    <el-form-item prop="Account">
+      <el-input type="text" v-model="loginform.Account" auto-complete="off" placeholder="账号"></el-input>
     </el-form-item>
-    <el-form-item prop="checkPass">
-      <el-input type="password" v-model="ruleForm2.checkPass" auto-complete="off" placeholder="密码"></el-input>
+    <el-form-item prop="Pwd">
+      <el-input type="password" v-model="loginform.Pwd" auto-complete="off" placeholder="密码"></el-input>
     </el-form-item>
     <el-checkbox v-model="checked" checked style="margin:0px 0px 35px 0px;">记住密码</el-checkbox>
     <el-form-item style="width:100%;">
-      <el-button type="primary" style="width:100%;" @click.native.prevent="handleSubmit2">登录</el-button>
+      <el-button type="primary" style="width:100%;" @click.native.prevent="Submit">登录</el-button>
       <!--<el-button @click.native.prevent="handleReset2">重置</el-button>-->
     </el-form-item>
   </el-form>
@@ -19,16 +19,16 @@
   export default {
     data() {
       return {
-        ruleForm2: {
-          account: '',
-          checkPass: ''
+        loginform: {
+          Account: '',
+          Pwd: ''
         },
-        rules2: {
-          account: [
+        rules: {
+          Account: [
             { required: true, message: '请输入账号', trigger: 'blur' },
             //{ validator: validaePass }
           ],
-          checkPass: [
+          Pwd: [
             { required: true, message: '请输入密码', trigger: 'blur' },
             //{ validator: validaePass2 }
           ]
@@ -37,20 +37,13 @@
       };
     },
     methods: {
-      handleReset2() {
-        this.$refs.ruleForm2.resetFields();
-      },
-      handleSubmit2(ev) {
+      Submit(ev) {
         var _this=this;
-        this.$refs.ruleForm2.validate((valid) => {
-          if (valid) {
+       
+
             //_this.$router.push('/table');
             _this.$router.replace('/table');
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
+        
       }
     }
   }

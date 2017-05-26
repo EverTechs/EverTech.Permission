@@ -49,6 +49,7 @@
     <Compile Include="RegionStep.cs" />
     <Compile Include="RolePermissionStep.cs" />
     <Compile Include="RoleStep.cs" />
+    <Compile Include="SysUserStep.cs" />
     <Compile Include="UserRegionStep.cs" />
     <Compile Include="UserRoleStep.cs" />
     <Compile Include="UserStep.cs" />

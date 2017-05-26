@@ -15,7 +15,8 @@ namespace EverTech.Permission.Test
             using (var db = new DbCtx())
             {
                 var resultUser = db.CreateTable<User>();
-                var resultRole = db.CreateTable<Role>();
+                var resultRole = db.CreateTable<Role>(); 
+                var resultSysUser = db.CreateTable<SysUser>();
             }
         }
 

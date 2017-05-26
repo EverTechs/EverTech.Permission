@@ -15,15 +15,15 @@ namespace EverTech.Permission.Test
         {
             var user = new User
             {
-                Account = "jerry",
+                Account = "jacky",
                 AddTime = DateTime.Now,
                 EditTime = DateTime.Now,
-                EMail = "jerry.core@foxmail.com",
+                EMail = "jacky.core@foxmail.com",
                 Enable = true,
                 Gender = true,
-                Name = "jerry",
-                Password = "jerry",
-                Phone = "18961156547",
+                Name = "jacky",
+                Password = "jacky",
+                Phone = "13000000006",
             };
 
             using (var db = new DbCtx())

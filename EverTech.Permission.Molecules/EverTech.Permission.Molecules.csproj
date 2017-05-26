@@ -45,6 +45,7 @@
     <Compile Include="RegionMolecule.cs" />
     <Compile Include="RoleMolecule.cs" />
     <Compile Include="RolePermissionMolecule.cs" />
+    <Compile Include="SysUserMolecule.cs" />
     <Compile Include="UserMolecule.cs" />
     <Compile Include="UserRegionMolecule.cs" />
     <Compile Include="UserRoleMolecule.cs" />

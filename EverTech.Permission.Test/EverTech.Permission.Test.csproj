@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="CreateTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SysUserTest.cs" />
     <Compile Include="UserTest.cs" />
   </ItemGroup>
   <ItemGroup>

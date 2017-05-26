@@ -50,6 +50,7 @@
     <Compile Include="RolePermissionStorage.cs" />
     <Compile Include="RoleStorage.cs" />
     <Compile Include="StorageCore\DbCtx.cs" />
+    <Compile Include="SysUserStorage.cs" />
     <Compile Include="UserRegionStorage.cs" />
     <Compile Include="UserRoleStorage.cs" />
     <Compile Include="UserStorage.cs" />

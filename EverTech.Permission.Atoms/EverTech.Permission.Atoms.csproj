@@ -49,6 +49,7 @@
     <Compile Include="Region.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="RolePermission.cs" />
+    <Compile Include="SysUser.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserRegion.cs" />
     <Compile Include="UserRole.cs" />

@@ -12,7 +12,7 @@ namespace EverTech.Permission.Web.Controllers
     {
         UserService service = new UserService();
 
-        [HttpPost, ApiException]
+        [HttpPost,HttpOptions, ApiException]
         public DataResult<string> Add(UserMolecule model)
         {
             return service.Add(model);

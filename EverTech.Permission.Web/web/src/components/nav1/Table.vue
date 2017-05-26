@@ -19,12 +19,14 @@
 		<template>
 			<el-table :data="tableData" highlight-current-row v-loading="listLoading" style="width: 100%;">
 				<el-table-column type="index" width="50"></el-table-column>
-				<el-table-column prop="Account" label="账号" width="100" ></el-table-column>
-				<el-table-column prop="Name" label="姓名" width="100" ></el-table-column>
-				<el-table-column prop="Gender" label="性别" width="100" :formatter="formatSex" ></el-table-column>
-				<el-table-column prop="Phone" label="手机" width="200" ></el-table-column>
-				<el-table-column prop="EMail" label="EMail" width="200" ></el-table-column>
-				<el-table-column prop="AddUser" label="添加人" ></el-table-column>
+				<el-table-column prop="Account" label="账号" width="100"></el-table-column>
+				<el-table-column prop="Name" label="姓名" width="100"></el-table-column>
+				<el-table-column prop="Gender" label="性别" width="100" :formatter="formatSex"></el-table-column>
+				<el-table-column prop="Phone" label="手机" width="200"></el-table-column>
+				<el-table-column prop="EMail" label="EMail" width="200"></el-table-column>
+				<el-table-column prop="AddTime" label="创建时间"></el-table-column>
+				<el-table-column prop="AddUser" label="添加人"></el-table-column>
+				<el-table-column prop="Enable" label="启用" :formatter="formatEnable"></el-table-column>
 				<el-table-column inline-template :context="_self" label="操作" width="100">
 					<span>
 						<el-button type="text" size="small" @click="handleEdit(row)">编辑</el-button>
@@ -44,28 +46,34 @@
 		<!--编辑界面-->
 		<el-dialog :title="editFormTtile" v-model="editFormVisible" :close-on-click-modal="false">
 			<el-form :model="editForm" label-width="80px" :rules="editFormRules" ref="editForm">
-				<el-form-item label="姓名" prop="name">
-					<el-input v-model="editForm.name" auto-complete="off"></el-input>
+				<el-form-item label="账号" prop="Account">
+					<el-input v-model="editForm.Account" auto-complete="off"></el-input>
 				</el-form-item>
-				<el-form-item label="性别">
-					<!--<el-select v-model="editForm.sex" placeholder="请选择性别">
+				<el-form-item label="性别" prop="Gender">
+					<el-select v-model="editForm.Gender" placeholder="请选择性别">
 						<el-option label="男" :value="1"></el-option>
 						<el-option label="女" :value="0"></el-option>
-					</el-select>-->
-					<el-radio-group v-model="editForm.sex">
-						<el-radio class="radio" :label="1">男</el-radio>
-						<el-radio class="radio" :label="0">女</el-radio>
+					</el-select>
+				</el-form-item>
+				<el-form-item label="是否启用" prop="Enable">
+					<el-radio-group v-model="editForm.Enable">
+						<el-radio class="radio" :label="1">启用</el-radio>
+						<el-radio class="radio" :label="0">禁用</el-radio>
 					</el-radio-group>
 				</el-form-item>
-				<el-form-item label="年龄">
-					<el-input-number v-model="editForm.age" :min="0" :max="200"></el-input-number>
+				<el-form-item label="姓名" prop="Name">
+					<el-input v-model="editForm.Name" auto-complete="off"></el-input>
 				</el-form-item>
-				<el-form-item label="生日">
-					<el-date-picker type="date" placeholder="选择日期" v-model="editForm.birth"></el-date-picker>
+				<el-form-item label="密码" prop="Password">
+					<el-input v-model="editForm.Password" type="Password" auto-complete="off"></el-input>
 				</el-form-item>
-				<el-form-item label="地址">
-					<el-input type="textarea" v-model="editForm.addr"></el-input>
+				<el-form-item label="手机号" prop="Phone">
+					<el-input v-model="editForm.Phone"></el-input>
 				</el-form-item>
+				<el-form-item label="邮箱地址" prop="EMail">
+					<el-input v-model="editForm.EMail"></el-input>
+				</el-form-item>
+
 			</el-form>
 			<div slot="footer" class="dialog-footer">
 				<el-button @click.native="editFormVisible = false">取 消</el-button>
@@ -76,8 +84,8 @@
 </template>
 
 <script>
-	// import util from '../../common/util'
-	// import NProgress from 'nprogress'
+	import util from '../../common/util'
+	import NProgress from 'nprogress'
 
 	export default {
 		data() {
@@ -114,7 +122,7 @@
 			}
 		},
 		mounted() {
-			this.$http.get("http://localhost:52709/api/User/findpage/1").then(data => {
+			this.$http.get("http://localhost:2000/User/findpage/1").then(data => {
 				console.log(JSON.stringify(data.body.Data))
 				this.tableData = data.body.Data;
 			}, response => {
@@ -125,6 +133,10 @@
 			//性别显示转换
 			formatSex: function (row, column) {
 				return row.Gender == true ? '男' : row.Gender == false ? '女' : '未知';
+			},
+			//是否可用
+			formatEnable: function (row, column) {
+				return row.Enable == true ? '启用' : row.Enable == false ? '禁用' : '未知';
 			},
 			//删除记录
 			handleDel: function (row) {
@@ -191,14 +203,13 @@
 
 								if (_this.editForm.id == 0) {
 									//新增
-									_this.tableData.push({
-										id: new Date().getTime(),
-										name: _this.editForm.name,
-										sex: _this.editForm.sex,
-										age: _this.editForm.age,
-										birth: _this.editForm.birth == '' ? '' : util.formatDate.format(new Date(_this.editForm.birth), 'yyyy-MM-dd'),
-										addr: _this.editForm.addr
-									});
+									_this.$http.post("http://localhost:2000/api/User/add", _this.editForm).then(data => {
+										console.log(JSON.stringify(data.body.Data))
+										//this.tableData = data.body.Data;
+									}, response => {
+										console.info(response);
+									})
+
 								} else {
 									//编辑
 									for (var i = 0; i < _this.tableData.length; i++) {
@@ -248,4 +259,8 @@
 		background: #fff;
 		padding: 10px 10px 0px 10px;
 	}
+	/*.el-dialog .el-input,
+	.el-dialog .el-select {
+		width: 250px;
+	}*/
 </style>
