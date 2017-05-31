@@ -7,6 +7,7 @@ using EverTech.Permission.Storages;
 using EverTech.Permission.Libs;
 using EverTech.Permission.Molecules;
 using Orm.Son.Mapper;
+using System.Threading;
 
 namespace EverTech.Permission.Services
 {
@@ -17,6 +18,9 @@ namespace EverTech.Permission.Services
         public DataResult<string> Add(UserMolecule model)
         {
             var entity = EntityMapper.Mapper<UserMolecule, User>(model);
+            entity.AddTime = DateTime.Now;
+            entity.EditTime = DateTime.Now;
+
             return store.Add(entity) > 0
                 ? new DataResult<string>(true,"添加成功")
                 : new DataResult<string>(false, "添加失败");
@@ -25,6 +29,16 @@ namespace EverTech.Permission.Services
         public DataResult<string> Del(int id)
         {
             return store.Del(id) > 0
+                ? new DataResult<string>(true, "删除成功")
+                : new DataResult<string>(false, "删除失败");
+        }
+
+        public DataResult<string> Del(CommonKeyMolecule model)
+        {
+            if (model == null || model.Ids==null|| model.Ids.Count == 0)
+                return new DataResult<string>(false, "参数不能为空");
+            
+            return store.Del(model.Ids) > 0
                 ? new DataResult<string>(true, "删除成功")
                 : new DataResult<string>(false, "删除失败");
         }

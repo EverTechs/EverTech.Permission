@@ -35,8 +35,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Orm.Son, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Orm.Son.1.1.7\lib\Orm.Son.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Orm.Son.1.1.9\lib\Orm.Son.dll</HintPath>
     </Reference>
     <Reference Include="Sweet.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sweet.Net.1.0.0\lib\Sweet.Net.dll</HintPath>

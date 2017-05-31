@@ -26,6 +26,14 @@ namespace EverTech.Permission.Storages
             }
         }
 
+        public int Del(List<int> ids)
+        {
+            using (var db = new DbCtx())
+            {
+                return db.Delete<User>(ids);
+            }
+        }
+
         public int Edit(User entity)
         {
             using (var db = new DbCtx())
