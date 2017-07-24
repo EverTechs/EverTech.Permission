@@ -34,9 +34,6 @@
       <HintPath>..\packages\JWT.1.3.4\lib\3.5\JWT.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Orm.Son, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Orm.Son.1.1.9\lib\Orm.Son.dll</HintPath>
-    </Reference>
     <Reference Include="Sweet.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sweet.Net.1.0.0\lib\Sweet.Net.dll</HintPath>
       <Private>True</Private>
@@ -62,6 +59,10 @@
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Orm.Son\Orm.Son\Orm.Son.csproj">
+      <Project>{018cf1a6-b5f9-44b2-baf8-2306729cb6a6}</Project>
+      <Name>Orm.Son</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EverTech.Permission.Atoms\EverTech.Permission.Atoms.csproj">
       <Project>{4e060c21-4ca1-472c-b753-3524febc9b50}</Project>
       <Name>EverTech.Permission.Atoms</Name>

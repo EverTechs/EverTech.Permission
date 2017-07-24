@@ -17,6 +17,8 @@ namespace EverTech.Permission.Services
         public DataResult<string> Add(RoleMolecule model)
         {
             var entity = EntityMapper.Mapper<RoleMolecule, Role>(model);
+            entity.AddTime = DateTime.Now;
+            entity.EditTime = DateTime.Now;
             return store.Add(entity) > 0
                 ? new DataResult<string>(true,"添加成功")
                 : new DataResult<string>(false, "添加失败");
@@ -44,10 +46,13 @@ namespace EverTech.Permission.Services
             return new DataResult<RoleMolecule>(entity);
         }
 
-        public DataResult<List<RoleMolecule>> FindPage(int page)
+        public DataResult<PageResult<RoleMolecule>> FindPage(int page, int pageSize, string keyWord)
         {
-            var reslut = store.FindPage(page);
-            return new DataResult<List<RoleMolecule>>(reslut.Item1);
+            var reslut = store.FindPage(page, pageSize, keyWord);
+            return new DataResult<PageResult<RoleMolecule>>
+            {
+                Data = new PageResult<RoleMolecule> { Total = reslut.Item2, DataList = reslut.Item1 }
+            };
         }
     }
 }

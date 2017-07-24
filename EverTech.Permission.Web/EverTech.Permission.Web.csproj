@@ -100,25 +100,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="web\index.html" />
-    <Content Include="web\screenshots\edit.jpg" />
-    <Content Include="web\screenshots\login.png" />
-    <Content Include="web\screenshots\main.png" />
-    <Content Include="web\src\assets\bg1.jpg" />
-    <Content Include="web\src\assets\logo.png" />
-    <Content Include="web\src\assets\logo1.png" />
-    <Content Include="web\src\assets\logo2.png" />
-    <Content Include="web\src\assets\logo3.png" />
-    <Content Include="web\src\assets\logo4.png" />
-    <Content Include="web\src\assets\logo5.png" />
-    <Content Include="web\src\assets\logout_16.png" />
-    <Content Include="web\src\assets\logout_24.png" />
-    <Content Include="web\src\assets\logout_36.png" />
-    <Content Include="web\src\common\util.js" />
-    <Content Include="web\src\main.js" />
-    <Content Include="web\src\vuex\actions.js" />
-    <Content Include="web\src\vuex\getters.js" />
-    <Content Include="web\src\vuex\store.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
@@ -137,37 +118,21 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ApiExceptionAttribute.cs" />
+    <Compile Include="Utils\LoginInfo.cs" />
     <Compile Include="Utils\MvcExceptionAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="web\.babelrc" />
-    <Content Include="web\.gitignore" />
-    <Content Include="web\package.json" />
-    <Content Include="web\src\App.vue" />
-    <Content Include="web\src\components\charts\echarts.vue" />
-    <Content Include="web\src\components\Home.vue" />
-    <Content Include="web\src\components\Login.vue" />
-    <Content Include="web\src\components\Main.vue" />
-    <Content Include="web\src\components\nav1\Form.vue" />
-    <Content Include="web\src\components\nav1\Page3.vue" />
-    <Content Include="web\src\components\nav1\Table.vue" />
-    <Content Include="web\src\components\nav2\Page4.vue" />
-    <Content Include="web\src\components\nav2\Page5.vue" />
-    <Content Include="web\src\components\nav3\Page6.vue" />
-    <Content Include="web\static\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="web\build\" />
-    <Folder Include="web\config\" />
-    <Folder Include="web\dist\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EverTech.Permission.Libs\EverTech.Permission.Libs.csproj">

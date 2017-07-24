@@ -16,9 +16,26 @@ namespace EverTech.Permission.Services
 
         public DataResult<string> Add(RolePermissionMolecule model)
         {
-            var entity = EntityMapper.Mapper<RolePermissionMolecule, RolePermission>(model);
-            return store.Add(entity) > 0
-                ? new DataResult<string>(true,"添加成功")
+            if (model.RoleIds == null || model.RoleIds.Count == 0)
+                throw new Exception("角色不能为空");
+
+            var es = new List<RolePermission>();
+            foreach (var rid in model.RoleIds)
+            {
+                store.Del(rid);
+                foreach (var pid in model.PermissionIds)
+                    es.Add(new RolePermission
+                    {
+                        AddTime = DateTime.Now,
+                        EditTime = DateTime.Now,
+                        RoleId = rid,
+                        PermissionId = pid,
+                        Enable = true
+                    });
+            }
+
+            return store.Add(es)
+                ? new DataResult<string>(true, "添加成功")
                 : new DataResult<string>(false, "添加失败");
         }
 
@@ -40,8 +57,14 @@ namespace EverTech.Permission.Services
         public DataResult<RolePermissionMolecule> GetById(int id)
         {
             var reslut = store.GetById(id);
-            var entity = EntityMapper.Mapper<RolePermission,RolePermissionMolecule>(reslut);
+            var entity = EntityMapper.Mapper<RolePermission, RolePermissionMolecule>(reslut);
             return new DataResult<RolePermissionMolecule>(entity);
+        }
+
+        public DataResult<List<int>> GetByRoleId(int id)
+        {
+            var reslut = store.GetByRoleId(id);
+            return new DataResult<List<int>>(reslut);
         }
 
         public DataResult<List<RolePermissionMolecule>> FindPage(int page)

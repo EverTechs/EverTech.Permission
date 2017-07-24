@@ -36,7 +36,13 @@ namespace EverTech.Permission.Web.Controllers
             return service.GetById(id);
         }
 
-		[HttpGet,ApiException]
+        [HttpGet, ApiException]
+        public DataResult<List<int>> GetByRoleId(int id)
+        {
+            return service.GetByRoleId(id);
+        }
+
+        [HttpGet,ApiException]
         public DataResult<List<RolePermissionMolecule>> FindPage(int page)
         {
             return service.FindPage(page);

@@ -50,11 +50,16 @@ namespace EverTech.Permission.Storages
             }
         }
 
-        public Tuple<List<UserMolecule>, int> FindPage(int page)
+        public Tuple<List<UserMolecule>, int> FindPage(int page, int pageSize,string keyWord)
         {
             using (var db = new DbCtx())
             {
-                return db.FindPage<User, UserMolecule>(t => t.Id > 0, t => t.Id, page, 30, true);
+                if (keyWord == null) keyWord = "";
+                return db.FindPage<User, UserMolecule>(t => t.Account.Contains(keyWord)
+                                                                                      || t.Name.Contains(keyWord) 
+                                                                                      || t.Phone.Contains(keyWord)
+                                                                                      || t.EMail.Contains(keyWord)
+                                                                                     , t => t.Id, page, pageSize, true);
             }
         }
     }

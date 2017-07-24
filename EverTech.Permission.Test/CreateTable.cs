@@ -17,10 +17,11 @@ namespace EverTech.Permission.Test
                 var resultUser = db.CreateTable<User>();
                 var resultRole = db.CreateTable<Role>(); 
                 var resultSysUser = db.CreateTable<SysUser>();
+                var resultPermission = db.CreateTable<Atoms.Permission>();
+                var resultRolePermission = db.CreateTable<Atoms.RolePermission>();
+                var resultUserRole = db.CreateTable<Atoms.UserRole>();
+                var resultUserRegion = db.CreateTable<Atoms.UserRegion>();
             }
         }
-
-
-
     }
 }

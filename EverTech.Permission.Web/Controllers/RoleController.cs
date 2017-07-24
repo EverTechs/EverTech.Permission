@@ -37,9 +37,9 @@ namespace EverTech.Permission.Web.Controllers
         }
 
 		[HttpGet,ApiException]
-        public DataResult<List<RoleMolecule>> FindPage(int page)
+        public DataResult<PageResult<RoleMolecule>> FindPage(int id = 1, int pageSize = 10, string keyWord = "")
         {
-            return service.FindPage(page);
+            return service.FindPage(id, pageSize, keyWord);
         }
     }
 }

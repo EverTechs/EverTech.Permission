@@ -37,9 +37,16 @@ namespace EverTech.Permission.Web.Controllers
         }
 
 		[HttpGet,ApiException]
-        public DataResult<List<PermissionMolecule>> FindPage(int page)
+        public DataResult<PageResult<PermissionMolecule>> FindPage(int id = 1, int pageSize = 10, string keyWord = "",int uid=0)
         {
-            return service.FindPage(page);
+            return service.FindPage(id, pageSize, keyWord, uid);
         }
+
+        [HttpGet, ApiException]
+        public DataResult<TreeDataMolecule> GetTopTreeData(int uid = 0)
+        {
+            return service.GetTopTreeData(uid);
+        }
+
     }
 }

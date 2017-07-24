@@ -5,16 +5,17 @@ using Orm.Son.Core;
 using EverTech.Permission.Atoms;
 using EverTech.Permission.Storages.StorageCore;
 using EverTech.Permission.Molecules;
+using System.Linq;
 
 namespace EverTech.Permission.Storages
 {
     public class RolePermissionStorage
     {
-        public int Add(RolePermission entity)
+        public bool Add(List<RolePermission> entities)
         {
             using (var db = new DbCtx())
             {
-                return db.Insert(entity);
+                    return db.Insert(entities);
             }
         }
 
@@ -22,7 +23,7 @@ namespace EverTech.Permission.Storages
         {
             using (var db = new DbCtx())
             {
-                return db.Delete<RolePermission>(id);
+                return db.Delete<RolePermission>(t => t.RoleId == id);
             }
         }
 
@@ -39,6 +40,15 @@ namespace EverTech.Permission.Storages
             using (var db = new DbCtx())
             {
                 return db.Find<RolePermission>(id);
+            }
+        }
+
+        public List<int> GetByRoleId(int id)
+        {
+            using (var db = new DbCtx())
+            {
+                var list = db.FindMany<RolePermission>(t => t.RoleId == id);
+                return list.Select(t => t.PermissionId).ToList();
             }
         }
 

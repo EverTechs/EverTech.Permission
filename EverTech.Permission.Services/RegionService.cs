@@ -17,6 +17,8 @@ namespace EverTech.Permission.Services
         public DataResult<string> Add(RegionMolecule model)
         {
             var entity = EntityMapper.Mapper<RegionMolecule, Region>(model);
+            entity.AddTime = DateTime.Now;
+            entity.EditTime = DateTime.Now;
             return store.Add(entity) > 0
                 ? new DataResult<string>(true,"添加成功")
                 : new DataResult<string>(false, "添加失败");
@@ -32,6 +34,7 @@ namespace EverTech.Permission.Services
         public DataResult<string> Edit(RegionMolecule model)
         {
             var entity = EntityMapper.Mapper<RegionMolecule, Region>(model);
+            entity.EditTime = DateTime.Now;
             return store.Edit(entity) > 0
                 ? new DataResult<string>(true, "更新成功")
                 : new DataResult<string>(false, "更新失败");
@@ -44,10 +47,13 @@ namespace EverTech.Permission.Services
             return new DataResult<RegionMolecule>(entity);
         }
 
-        public DataResult<List<RegionMolecule>> FindPage(int page)
+        public DataResult<PageResult<RegionMolecule>> FindPage(int page, int pageSize, string keyWord)
         {
-            var reslut = store.FindPage(page);
-            return new DataResult<List<RegionMolecule>>(reslut.Item1);
+            var reslut = store.FindPage(page, pageSize, keyWord);
+            return new DataResult<PageResult<RegionMolecule>>
+            {
+                Data = new PageResult<RegionMolecule> { Total = reslut.Item2, DataList = reslut.Item1 }
+            };
         }
     }
 }

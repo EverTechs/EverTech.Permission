@@ -15,6 +15,7 @@ namespace EverTech.Permission.Web.Controllers
         [HttpPost, ApiException]
         public DataResult<string> Add(UserMolecule model)
         {
+            model.AddUser = LoginInfo.Loginer.Id;
             return service.Add(model);
         }
 
@@ -42,9 +43,9 @@ namespace EverTech.Permission.Web.Controllers
         }
 
         [HttpGet, ApiException]
-        public DataResult<List<UserMolecule>> FindPage(int id = 1)
+        public DataResult<PageResult<UserMolecule>> FindPage(int id = 1, int pageSize = 10, string keyWord = "")
         {
-            return service.FindPage(id);
+            return service.FindPage(id, pageSize, keyWord);
         }
     }
 }

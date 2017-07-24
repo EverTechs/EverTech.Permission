@@ -18,6 +18,8 @@ namespace EverTech.Permission.Services
         public DataResult<string> Add(SysUserMolecule model)
         {
             var entity = EntityMapper.Mapper<SysUserMolecule, SysUser>(model);
+            entity.AddTime = DateTime.Now;
+            entity.Pwd = entity.Pwd.GetMd5();
             return store.Add(entity) > 0
                 ? new DataResult<string>(true, "添加成功")
                 : new DataResult<string>(false, "添加失败");
@@ -45,10 +47,13 @@ namespace EverTech.Permission.Services
             return new DataResult<SysUserMolecule>(entity);
         }
 
-        public DataResult<List<SysUserMolecule>> FindPage(int page)
+        public DataResult<PageResult<SysUserMolecule>> FindPage(int page, int pageSize, string keyWord)
         {
-            var reslut = store.FindPage(page);
-            return new DataResult<List<SysUserMolecule>>(reslut.Item1);
+            var reslut = store.FindPage(page, pageSize, keyWord);
+            return new DataResult<PageResult<SysUserMolecule>>
+            {
+                Data = new PageResult<SysUserMolecule> { Total = reslut.Item2, DataList = reslut.Item1 }
+            };
         }
 
         public DataResult<SysUserMolecule> Login(string account, string pwd)
@@ -59,17 +64,6 @@ namespace EverTech.Permission.Services
             var reslut = store.GetLoginUser(account, pwd.GetMd5());
             if (reslut == null)
                 return new DataResult<SysUserMolecule>(false, "用户名或密码不正确");
-
-            var cookieObj = new
-            {
-                Id = reslut.Id,
-                Account = reslut.Account,
-                IsSuper = reslut.IsSuper
-            };
-
-            
-
-           // var token = JwtExt.EnToken(cookieObj);
 
             return new DataResult<SysUserMolecule>(reslut, null);
         }

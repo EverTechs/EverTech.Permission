@@ -46,6 +46,7 @@ namespace EverTech.Permission.Services
         public DataResult<string> Edit(UserMolecule model)
         {
             var entity = EntityMapper.Mapper<UserMolecule, User>(model);
+            entity.EditTime = DateTime.Now;
             return store.Edit(entity) > 0
                 ? new DataResult<string>(true, "更新成功")
                 : new DataResult<string>(false, "更新失败");
@@ -58,10 +59,13 @@ namespace EverTech.Permission.Services
             return new DataResult<UserMolecule>(entity);
         }
 
-        public DataResult<List<UserMolecule>> FindPage(int page)
+        public DataResult<PageResult<UserMolecule>> FindPage(int page,int pageSize,string keyWord)
         {
-            var reslut = store.FindPage(page);
-            return new DataResult<List<UserMolecule>>(reslut.Item1);
+            var reslut = store.FindPage(page, pageSize, keyWord);
+            return new DataResult<PageResult<UserMolecule>>
+            {
+                Data = new PageResult<UserMolecule> { Total = reslut.Item2, DataList = reslut.Item1 }
+            };
         }
     }
 }

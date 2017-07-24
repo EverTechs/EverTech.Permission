@@ -123,7 +123,7 @@ new Vue({
   store,
   components: { App }
   //render: h => h(Login)
-}).$mount('#app')
+}).$mount('#app') 
 
 //router.replace('/login')
 

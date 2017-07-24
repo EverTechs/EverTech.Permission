@@ -42,11 +42,14 @@ namespace EverTech.Permission.Storages
             }
         }
 
-        public Tuple<List<RegionMolecule>, int> FindPage(int page)
+        public Tuple<List<RegionMolecule>, int> FindPage(int page, int pageSize, string keyWord)
         {
             using (var db = new DbCtx())
             {
-                return db.FindPage<Region, RegionMolecule>(t => t.Id > 0, t => t.Id, page, 30, true);
+                    if (keyWord == null) keyWord = "";
+                    return db.FindPage<Region, RegionMolecule>(t => t.DistrictName.Contains(keyWord)
+                                                                                                || t.CityName.Contains(keyWord)
+                                                                                                || t.ProvinceName.Contains(keyWord), t => t.ProvinceId, page, pageSize);
             }
         }
     }
